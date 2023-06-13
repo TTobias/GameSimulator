@@ -23,3 +23,19 @@ public class Player{
     handCards.addcard(pile.takeTopCard());
   }
 }
+
+
+
+
+
+
+public class PlayerSocket{
+  public int id;
+  
+  
+  public void sendJoinGame(){}
+  
+  public void sendPlayCard(){}
+  
+  public void sendDrawCard(){}
+}
