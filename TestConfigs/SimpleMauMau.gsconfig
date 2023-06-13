@@ -1,0 +1,6 @@
+Deck = {♠,♥,♣,♦}x{A,6,7,8,9,10,B,Q,K}+{}
+
+CardPiles = {Draw,Discard}
+
+playerAmount = [2,6]
+startingCards = 5
