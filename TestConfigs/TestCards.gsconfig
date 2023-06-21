@@ -1,0 +1,17 @@
+Deck = {♠,♥,♣,♦}x{A,6,7,8,9,10,B,Q,K}+{}
+CardPiles = {Draw,Discard}
+PlayerPiles = {Hand}
+playerAmount = [2,4]
+startingCards = 5
+turnOrder = Player[i].Player[i+1]
+turnActions = (actDrawCard + actPlayCard).checkVictory.checkReshuffle
+
+initial = Deck in CardPiles[Draw]; shuffle(CardPiles[Draw]); each_player[i](move(top_x(CardPiles[Draw],startingCards) to PlayerPiles[i][Hand]));
+
+_acts:
+actDrawCard = move(top(CardPiles[Draw]) to PlayerPiles[i][Hand];
+actPlayCard = has c from PlayerPiles[i][Hand]: if { (rank(top(cardPiles[Discard])) is rank(PlayerPiles[Hand])) or (suit(top(cardPiles[Discard])) is suit(PlayerPiles[Hand])) } do { move(c to CardPiles[Discard]; };
+
+_checks:
+checkVictory = if { size(PlayerPiles[i][Hand] is 0) } do { victory(Player[i]); }
+checkReShuffle = if { size(CardPiles[Draw] is 0 } do { move(multiple(CardPiles[Discard],1,size(CardPiles[Discard])-1) to CardPiles[Draw]); shuffle(CardPiles[Draw]); }

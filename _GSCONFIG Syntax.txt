@@ -1,0 +1,41 @@
+
+
+DEFINITIONS::
+Deck = {...}x{...}+{...}
+CardPiles = {X,Y,...}
+PlayerPiles = {X,...}
+
+playerAmount = [a,b]
+startingCards = a
+
+turnOrder = (A<.A>)^C<.B*>^D
+turnActions = Act, +, ., *, ^n
+
+initial = EXP;*
+
+
+KEYWORDS::
+EXP;
+
+shuffle(X)		:=
+move(X to Y)		:=
+top(X) -> Card		:=
+top_x(X,n) -> Card[]	:=
+size(X)	-> int		:=
+multiple(X,a,b) -> Card[] :=
+victory(U)		:=
+
+CardPile[X]
+PlayerPile[P][X]
+
+Player[P]
+
+if { EXP } do { EXP } <elif { EXP }>* <else { EXP }>
+has X from Y:
+EXP:
+
+
+VARIABLE TYPES::
+X,Y,Z = Pile
+C,D = Card
+P = Player, i:current, i+-n:nth-next player, r:random player, ro:random other player, {P..P} multiple players, t:target player, to:target other player
