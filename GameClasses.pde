@@ -38,15 +38,15 @@ public class GameBuilder{
 // represents a full set of cards
 public class Deck{
   // Has all permutations of suit and rank + special cards 
-  // {'♠','♥','♣','♦'}
-  public String[] suits = {'♠','♥','♣','♦'};
-  public String[] ranks = {'A','2','3','4','5','6','7','8','9','10','B','Q','K'};
-  public String[] special = {'J','J'};
+  // {"♠","♥","♣","♦"}
+  public String[] suits = {"♠","♥","♣","♦"};
+  public String[] ranks = {"A","2","3","4","5","6","7","8","9","10","B","Q","K"};
+  public String[] special = {"J","J"};
   
   public Deck(){
     createCards();
   }
-  public Deck(int[] su, int[] ra, int[] sp){
+  public Deck(String[] su, String[] ra, String[] sp){
     suits = su;
     ranks = ra;
     special = sp;
@@ -56,8 +56,8 @@ public class Deck{
     
   public Card[] cards;
   public void createCards() {
-    cards = new Card[suits*ranks + special];
-    index = 0;
+    cards = new Card[suits.length*ranks.length + special.length];
+    int index = 0;
     
     for(int s = 0; s<suits.length; s++){
       for(int r = 0; r<ranks.length; r++){

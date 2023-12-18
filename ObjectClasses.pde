@@ -71,9 +71,9 @@ public class CardPile{
   }
   
   public void removeCard(String name){
-    for(int i = 0;i<cards.length; i++){
-      if(cards[i].name.equals(name)){
-        cards.remove(cards[i]);
+    for(int i = 0;i<cards.size(); i++){
+      if(cards.get(i).name.equals(name)){
+        cards.remove(cards.get(i));
         println("Removed a card");
         break;
       }
@@ -86,15 +86,15 @@ public class CardPile{
   }
   
   public boolean hasCard(String name){
-    return hasCard(card, 1, MAX_INT);
+    return hasCard(name, 1, MAX_INT);
   }
   public boolean hasCard(String name, int amount){
-    return hasCard(card, amount, INT_MAX);
+    return hasCard(name, amount, MAX_INT);
   }
   public boolean hasCard(String name, int min, int max){
     int counter = 0;
-    for(int i = 0; i<cards.length; i++){
-      counter = cards[i].name.equals(name)? counter+1 : counter;
+    for(int i = 0; i<cards.size(); i++){
+      counter = cards.get(i).name.equals(name)? counter+1 : counter;
     }
     println("Checked for cards");
     return counter >= min && counter <= max;

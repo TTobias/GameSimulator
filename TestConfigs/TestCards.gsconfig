@@ -1,7 +1,9 @@
+type card
+playerAmount = [2,4]
+
 Deck = {♠,♥,♣,♦}x{A,6,7,8,9,10,B,Q,K}+{}
 CardPiles = {Draw,Discard}
 PlayerPiles = {Hand}
-playerAmount = [2,4]
 startingCards = 5
 turnOrder = Player[i].Player[i+1]
 turnActions = (actDrawCard + actPlayCard).checkVictory.checkReshuffle

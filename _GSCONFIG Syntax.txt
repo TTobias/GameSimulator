@@ -1,6 +1,9 @@
 
 
 DEFINITIONS::
+type 		:= card | board | dice			always on line 1
+playerAmount	:= x | [x,y] | {x,y,z,...}		always on line 2
+
 Deck = {...}x{...}+{...}
 CardPiles = {X,Y,...}
 PlayerPiles = {X,...}
@@ -17,22 +20,23 @@ initial = EXP;*
 KEYWORDS::
 EXP;
 
-shuffle(X)		:=
-move(X to Y)		:=
-top(X) -> Card		:=
-top_x(X,n) -> Card[]	:=
-size(X)	-> int		:=
-multiple(X,a,b) -> Card[] :=
-victory(U)		:=
+shuffle(X)		:= Shuffles Card Pile X
+move(C to X)		:= moves Card C to Cardpile X
+top(X) -> Card		:= returns the top Card of Cardpile X
+top_x(X,n) -> Card[]	:= returns the top n Cards of Cardpile X
+size(X)	-> int		:= returns the size of Cardpile X
+multiple(X,a,b) -> Card[] := returns the cards with a <= index <= b from Cardpile X
+victory(U)		:= ends the game with victory for Player U
+defeat(U)		:= eliminates Player U from the game
 
-CardPile[X]
+CardPile[X]		:= Represents the Card Pile X
 PlayerPile[P][X]
 
 Player[P]
 
-if { EXP } do { EXP } <elif { EXP }>* <else { EXP }>
+if { EXP } do { EXP } <elif { EXP }>* <else { EXP }>	:= explicit conditional
 has X from Y:
-EXP:
+EXP: { EXP* }		:= definitions for the expressions After
 
 
 VARIABLE TYPES::
